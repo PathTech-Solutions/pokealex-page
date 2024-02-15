@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: pokealex-page-development
+    volumes:
+      - "./src:/app/src"
+      - "./public:/app/public"
+      - "./package.json:/app/package.json"
+      - "./package-lock.json:/app/package-lock.json"
+    build:
+      context: .
+    ports:
+      - 3000:3000
