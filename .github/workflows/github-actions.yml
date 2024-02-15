@@ -1,0 +1,24 @@
+name: Path Project
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    name: Run linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+  build:
+    name: Build react app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Build app
+        run: npm run build
