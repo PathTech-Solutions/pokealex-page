@@ -4,10 +4,10 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm i
 COPY . .
-RUN npm run build
+RUN npm run build-prod
 
 FROM nginx:1.25.3-alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=builder /app/build .
+COPY --from=builder /app/out .
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
