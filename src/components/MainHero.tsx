@@ -1,6 +1,7 @@
 import React from 'react';
 
 import config from '../config/index.json';
+import BookingCalendar from './BookingCalendar';
 
 const MainHero = () => {
   const { mainHero } = config;
@@ -33,6 +34,7 @@ const MainHero = () => {
               {mainHero.secondaryAction.text}
             </a>
           </div>
+					<BookingCalendar/>
         </div>
       </div>
     </main>
